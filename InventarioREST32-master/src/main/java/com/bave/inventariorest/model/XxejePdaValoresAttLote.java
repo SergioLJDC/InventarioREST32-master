@@ -12,8 +12,8 @@ public class XxejePdaValoresAttLote {
     @Column(name = "ID_VALOR")
     private Long idValor;
 
-    @Column(name = "FLEX_VALUE_ID")
-    private Long flexValueId;
+    @Column(name = "FLEX_VALUE_ID,",length = 40)
+    private String flexValueId;
 
     @Column(name = "FLEX_VALUE", length = 150)
     private String flexValue;
@@ -29,11 +29,11 @@ public class XxejePdaValoresAttLote {
         this.idValor = idValor;
     }
 
-    public Long getFlexValueId() {
+    public String getFlexValueId() {
         return flexValueId;
     }
 
-    public void setFlexValueId(Long flexValueId) {
+    public void setFlexValueId(String flexValueId) {
         this.flexValueId = flexValueId;
     }
 
