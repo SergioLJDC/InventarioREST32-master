@@ -28,7 +28,7 @@ public class MtlTransactionsInterfaceService {
     public List<DatosTransOrg> getTransSubinv() {
 
         Query query = entityManager.createQuery(
-                "SELECT DISTINCT new com.bave.inventariorest.model.DatosTransOrg(mti.shipmentNumber,mti.transactionSourceName) FROM MtlTransactionsInterface mti WHERE mti.transactionActionId=21 and mti.transactionTypeId=21",
+                "SELECT DISTINCT new com.bave.inventariorest.model.DatosTransOrg(mti.shipmentNumber,mti.transactionSourceName) FROM MtlTransactionsInterface mti WHERE mti.transactionActionId=21 and mti.transactionTypeId=21 and exists (select  1 from MtlStatusNew msn where mti.organizationId = msn.organizationId and msn.shipmentNumber = mti.shipmentNumber and msn.processFlag = 30)",
                 DatosTransOrg.class);
         try {
             return query.getResultList();

@@ -71,7 +71,7 @@ public class RcvTransactionsInterface {
     @Column(name = "CURRENCY_CONVERSION_TYPE")
     private String currencyConversionType;
     @Column(name = "CURRENCY_CONVERSION_RATE")
-    private Long currencyConversionRate;
+    private Double currencyConversionRate;
     @Column(name = "CURRENCY_CONVERSION_DATE")
     private String currencyConversionDate;
     @Column(name = "PO_DISTRIBUTION_ID")
@@ -353,11 +353,11 @@ public class RcvTransactionsInterface {
         this.currencyConversionType = currencyConversionType;
     }
 
-    public Long getCurrencyConversionRate() {
+    public Double getCurrencyConversionRate() {
         return currencyConversionRate;
     }
 
-    public void setCurrencyConversionRate(Long currencyConversionRate) {
+    public void setCurrencyConversionRate(Double currencyConversionRate) {
         this.currencyConversionRate = currencyConversionRate;
     }
 
