@@ -16,6 +16,7 @@ import java.util.List;
 
 @Service
 public class RcvTransactionsInterfaceService  {
+
     @Autowired
     private IRcvTransactionsInterfaceDao iRcvTransactionsInterfaceDao;
 
@@ -154,6 +155,11 @@ public class RcvTransactionsInterfaceService  {
 
             return null;
         }
+    }
+
+    @Transactional
+   public List<Long> getPolineasBysegmentAndPoHeader(String segment , Long poHeaderId){
+        return iRcvTransactionsInterfaceDao.getPolineasBysegmentAndPoHeader(segment,poHeaderId);
     }
 
 

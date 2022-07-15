@@ -1,7 +1,6 @@
 package com.bave.inventariorest.model;
 
 public class DatosRecepcion {
-
     private String unitMeasLookupCode;
     private Long itemId;
     private String itemDescription;

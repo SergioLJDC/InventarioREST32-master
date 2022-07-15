@@ -40,7 +40,7 @@ public class ConsultaItemService {
 
 
         try {
-            return entityManager.createQuery("SELECT new com.bave.inventariorest.model.ConsultaItem(c.subinventoryCode,c.locatorCode,c.lotNumber,c.serialNumber,c.inventoryItemId,c.sigle,c.description,c.cantidad,c.unidad) FROM ConsultaItemV  c WHERE c.subinventoryCode=?1").setParameter(1, subinventoryCode).getResultList();
+            return entityManager.createQuery("SELECT new com.bave.inventariorest.model.ConsultaItem(c.subinventoryCode,c.locatorCode,c.lotNumber,c.serialNumber,c.inventoryItemId,c.sigle,c.description,c.cantidad,c.unidad) FROM ConsultaItemV  c WHERE c.subinventoryCode=?1 order by c.lotNumber desc ").setParameter(1, subinventoryCode).getResultList();
         }
         catch(NoResultException e){
 
@@ -55,7 +55,7 @@ public class ConsultaItemService {
 
 
         try {
-            return entityManager.createQuery("SELECT new com.bave.inventariorest.model.ConsultaItem(c.subinventoryCode,c.locatorCode,c.lotNumber,c.serialNumber,c.inventoryItemId,c.sigle,c.description,c.cantidad,c.unidad) FROM ConsultaItemV  c WHERE c.subinventoryCode=?1 and c.inventoryItemId=?2").setParameter(1, subinventoryCode).setParameter(2,inventoryItemId).getResultList();
+            return entityManager.createQuery("SELECT new com.bave.inventariorest.model.ConsultaItem(c.subinventoryCode,c.locatorCode,c.lotNumber,c.serialNumber,c.inventoryItemId,c.sigle,c.description,c.cantidad,c.unidad) FROM ConsultaItemV  c WHERE c.subinventoryCode=?1 and c.inventoryItemId=?2  ORDER BY c.lotNumber DESC").setParameter(1, subinventoryCode).setParameter(2,inventoryItemId).getResultList();
         }
         catch(NoResultException e){
 
@@ -79,7 +79,6 @@ public class ConsultaItemService {
                     "on a.inventoryItemId=c.inventoryItemId " +
                     "WHERE a.subinventoryCode=?1 GROUP BY a.inventoryItemId," +
                     "c.segment1,c.description,c.primaryUomCode ORDER BY c.description");
-
 
             return query.setParameter(1, subinventoryCode).getResultList();
         }

@@ -1,7 +1,6 @@
 package com.bave.inventariorest.controller;
 
 
-import com.bave.inventariorest.dao.IRcvHeadersInterfaceEntregaDao;
 import com.bave.inventariorest.model.RcvHeadersInterfaceEntrega;
 import com.bave.inventariorest.service.RcvHeadersInterfaceEntregaService;
 import org.springframework.beans.factory.annotation.Autowired;

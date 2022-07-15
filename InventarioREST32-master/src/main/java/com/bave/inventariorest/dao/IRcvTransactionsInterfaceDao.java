@@ -30,4 +30,14 @@ public interface IRcvTransactionsInterfaceDao extends PagingAndSortingRepository
     List<RcvTransactionsInterface> getAllByHeader(Long headerInterfaceId);
 
 
+    @Query(value = "SELECT PLA.LINE_NUM FROM RCV_TRANSACTIONS_INTERFACE RTI," +
+            "            MTL_SYSTEM_ITEMS MSI ," +
+            "            PO_LINES_ALL PLA " +
+            "WHERE MSI.INVENTORY_ITEM_ID = ?1 " +
+            "AND PLA.ITEM_ID = MSI.INVENTORY_ITEM_ID " +
+            "AND PLA.LINE_NUM = RTI.PO_LINE_ID " +
+            "AND RTI.PO_HEADER_ID = ?2; ",nativeQuery = true)
+     List<Long> getPolineasBysegmentAndPoHeader(String segment, Long poHeaderId);
+
+
 }

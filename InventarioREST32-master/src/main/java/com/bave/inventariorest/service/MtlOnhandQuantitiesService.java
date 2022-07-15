@@ -142,7 +142,7 @@ public class MtlOnhandQuantitiesService {
     public MtlOnhandQuantities validaSerie(String articulo, String lote, String subinventario, String localizador, String serie){
 
         Query query = entityManager.createNativeQuery("SELECT * FROM mtl_onhand_quantities moq, mtl_system_items msi, localizador loc " +
-                "WHERE moq.inventory_item_id = msi.inventory_item_id " +
+                "WHERE moq.inventory_item_id = msi.inventory_item_d " +
                 "AND loc.id_localizador = moq.locator_id " +
                 "AND msi.segment1 = ?1 AND nvl(moq.lot_number,'') = ?2 " +
                 "AND moq.subinventory_code = ?3 AND nvl(loc.cod_localizador,'') = ?4 " +

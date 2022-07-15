@@ -12,7 +12,7 @@ public interface IMtlSystemItemsDao extends PagingAndSortingRepository<MtlSystem
     @Query("SELECT m FROM MtlSystemItems m where m.segment1 = ?1")
     MtlSystemItems getBySegment(String segment);
 
-    @Query("SELECT m FROM MtlSystemItems m,PoLinesAll pl,PoHeadersAll ph where pl.poHeaderId=ph.po_header_id and pl.itemId=m.inventoryItemId and ph.po_header_id = ?1 and ph.receipt_num=?2")
+    @Query("SELECT DISTINCT m FROM MtlSystemItems m,PoLinesAll pl,PoHeadersAll ph where pl.poHeaderId=ph.po_header_id and pl.itemId=m.inventoryItemId and ph.po_header_id = ?1 and ph.receipt_num=?2")
     List<MtlSystemItems> getArticulosByOcReceipt(Long PoHeaderId,Long ReceiptNum);
 
     @Query("SELECT m FROM MtlSystemItems m where m.inventoryItemId = ?1 ")

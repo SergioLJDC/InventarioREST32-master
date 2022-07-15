@@ -1,6 +1,5 @@
 package com.bave.inventariorest.controller;
 
-import com.bave.inventariorest.model.MtlTransactionsInterface;
 import com.bave.inventariorest.model.XxpdaLogUser;
 import com.bave.inventariorest.service.XxpdaLogUserService;
 import org.springframework.beans.factory.annotation.Autowired;

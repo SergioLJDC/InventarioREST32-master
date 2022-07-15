@@ -6,6 +6,8 @@ import com.bave.inventariorest.service.RcvHeadersInterfaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class RcvHeadersInterfaceController {
 
@@ -36,6 +38,12 @@ public class RcvHeadersInterfaceController {
         return rcvHeadersInterfaceService.existe(headerInterfaceId);
 
     }
+
+    @GetMapping("/RcvHeadersInterface/lineasTomadasBySegment")
+    List<Long> lineasTomadasBySegment(){
+        return  rcvHeadersInterfaceService.lineasTomadasBySegment();
+    }
+
 
 
 }

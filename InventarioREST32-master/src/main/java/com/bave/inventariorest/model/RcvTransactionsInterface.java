@@ -65,7 +65,7 @@ public class RcvTransactionsInterface {
     @Column(name = "PO_LINE_LOCATION_ID")
     private Long poLineLocation;
     @Column(name = "PO_UNIT_PRICE")
-    private Long poUnitPrice;
+    private Double poUnitPrice;
     @Column(name = "CURRENCY_CODE")
     private String currencyCode;
     @Column(name = "CURRENCY_CONVERSION_TYPE")
@@ -329,11 +329,11 @@ public class RcvTransactionsInterface {
         this.poLineLocation = poLineLocation;
     }
 
-    public Long getPoUnitPrice() {
+    public Double getPoUnitPrice() {
         return poUnitPrice;
     }
 
-    public void setPoUnitPrice(Long poUnitPrice) {
+    public void setPoUnitPrice(Double poUnitPrice) {
         this.poUnitPrice = poUnitPrice;
     }
 

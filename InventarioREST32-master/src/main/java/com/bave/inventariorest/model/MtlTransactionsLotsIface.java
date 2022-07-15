@@ -52,11 +52,84 @@ public class MtlTransactionsLotsIface {
     @Column(name = "ATTRIBUTE3")
     private String attrubute3;
 
+    @Column(name = "ATTRIBUTE4")
+    private String attrubute4;
+    @Column(name = "ATTRIBUTE5")
+    private String attrubute5;
+    @Column(name = "ATTRIBUTE6")
+    private String attrubute6;
+
+    @Column(name = "ATTRIBUTE7")
+    private String attrubute7;
+    @Column(name = "ATTRIBUTE8")
+    private String attrubute8;
+    @Column(name = "ATTRIBUTE9")
+    private String attrubute9;
+
+    @Column(name = "ATTRIBUTE10")
+    private String attrubute10;
+
+    public String getAttrubute4() {
+        return attrubute4;
+    }
+
+    public void setAttrubute4(String attrubute4) {
+        this.attrubute4 = attrubute4;
+    }
+
+    public String getAttrubute5() {
+        return attrubute5;
+    }
+
+    public void setAttrubute5(String attrubute5) {
+        this.attrubute5 = attrubute5;
+    }
+
+    public String getAttrubute6() {
+        return attrubute6;
+    }
+
+    public void setAttrubute6(String attrubute6) {
+        this.attrubute6 = attrubute6;
+    }
+
+    public String getAttrubute7() {
+        return attrubute7;
+    }
+
+    public void setAttrubute7(String attrubute7) {
+        this.attrubute7 = attrubute7;
+    }
+
+    public String getAttrubute8() {
+        return attrubute8;
+    }
+
+    public void setAttrubute8(String attrubute8) {
+        this.attrubute8 = attrubute8;
+    }
+
+    public String getAttrubute9() {
+        return attrubute9;
+    }
+
+    public void setAttrubute9(String attrubute9) {
+        this.attrubute9 = attrubute9;
+    }
+
+    public String getAttrubute10() {
+        return attrubute10;
+    }
+
+    public void setAttrubute10(String attrubute10) {
+        this.attrubute10 = attrubute10;
+    }
+
     public MtlTransactionsLotsIface(){
 
     }
 
-    public MtlTransactionsLotsIface(Long transactionInterfaceId, String lastUpdateDate, Long lastUpdateBy, String creationDate, Long createdBy, Long poHeaderId, Long poLineId, Long inventoryItemId, Long lastUpdateLogin, String lotNumber, Double transactionQuantity, Double primaryQuantity, Long serialTransactionTempId, String productCode, Long productTransactionId, String supplierLotNumber, String lotExpirationDate, String attributeCategory, String attrubute1, String attrubute2, String attrubute3) {
+    public MtlTransactionsLotsIface(Long transactionInterfaceId, String lastUpdateDate, Long lastUpdateBy, String creationDate, Long createdBy, Long poHeaderId, Long poLineId, Long inventoryItemId, Long lastUpdateLogin, String lotNumber, Double transactionQuantity, Double primaryQuantity, Long serialTransactionTempId, String productCode, Long productTransactionId, String supplierLotNumber, String lotExpirationDate, String attributeCategory, String attrubute1, String attrubute2, String attrubute3, String attrubute4, String attrubute5, String attrubute6, String attrubute7, String attrubute8, String attrubute9, String attrubute10) {
         this.transactionInterfaceId = transactionInterfaceId;
         this.lastUpdateDate = lastUpdateDate;
         this.lastUpdateBy = lastUpdateBy;
@@ -78,6 +151,13 @@ public class MtlTransactionsLotsIface {
         this.attrubute1 = attrubute1;
         this.attrubute2 = attrubute2;
         this.attrubute3 = attrubute3;
+        this.attrubute4 = attrubute4;
+        this.attrubute5 = attrubute5;
+        this.attrubute6 = attrubute6;
+        this.attrubute7 = attrubute7;
+        this.attrubute8 = attrubute8;
+        this.attrubute9 = attrubute9;
+        this.attrubute10 = attrubute10;
     }
 
     public Long getTransactionInterfaceId() {

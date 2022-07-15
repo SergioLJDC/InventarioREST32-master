@@ -1,7 +1,5 @@
 package com.bave.inventariorest.controller;
 
-import com.bave.inventariorest.dao.IAttriburoLoteDao;
-import com.bave.inventariorest.model.AttributoLote;
 import com.bave.inventariorest.model.AttributoLote2;
 import com.bave.inventariorest.service.AttributoLoteService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -10,6 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import java.util.List;
 
 @Service
 public class RcvHeadersInterfaceService {
@@ -57,7 +58,9 @@ public class RcvHeadersInterfaceService {
         return (Long) query.setParameter(1,headerInterfaceId).getSingleResult();
 
     }
-
+    public List<Long> lineasTomadasBySegment(){
+        return iRcvHeadersInterfaceDao.lineasTomadasBySegment();
+    }
 
 
 }

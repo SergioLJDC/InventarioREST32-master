@@ -64,7 +64,7 @@ public class RcvTransactionsInterfaceEntrega {
     @Column(name = "PO_LINE_LOCATION_ID")
     private Long poLineLocation;
     @Column(name = "PO_UNIT_PRICE")
-    private Long poUnitPrice;
+    private Double poUnitPrice;
     @Column(name = "CURRENCY_CODE")
     private String currencyCode;
     @Column(name = "CURRENCY_CONVERSION_TYPE")
@@ -115,7 +115,7 @@ public class RcvTransactionsInterfaceEntrega {
     public RcvTransactionsInterfaceEntrega() {
     }
 
-    public RcvTransactionsInterfaceEntrega(Long transactionInterfaceId, Date lastUpdatedDate, Long lastUpdatedBy, String creationDate, Long createdBy, String transactionType, String transactionDate, String processingStatusCode, String processingModeCode, Double quantity, String unitOfMeasure, Long itemId, String itemDescription, String uomCode, Long employeeId, Long shipmentHeaderId, Long shipmentLineId, Long shipToLocationId, Long vendorId, Long vendorSiteId, Long toOrganizationId, String sourceDocumentCode, Long parentTransactionId, Long poHeaderId, Long poLineId, Long poLineLocation, Long poUnitPrice, String currencyCode, String currencyConversionType, Long currencyConversionRate, String currencyConversionDate, Long poDistributionId, String destinationTypeCode, Long locationId, Long deliverToLocationId, String inspectionStatusCode, String subinventory, Long locatorId, String shipmentNum, Long useMtlLot, Long useMtlSerial, Long groupId, String transactionStatusCode, String autoTransactCode, String receiptSourceCode, String validationFlag, Long orgId, Double primaryQuantity, String estado, String attribute15) {
+    public RcvTransactionsInterfaceEntrega(Long transactionInterfaceId, Date lastUpdatedDate, Long lastUpdatedBy, String creationDate, Long createdBy, String transactionType, String transactionDate, String processingStatusCode, String processingModeCode, Double quantity, String unitOfMeasure, Long itemId, String itemDescription, String uomCode, Long employeeId, Long shipmentHeaderId, Long shipmentLineId, Long shipToLocationId, Long vendorId, Long vendorSiteId, Long toOrganizationId, String sourceDocumentCode, Long parentTransactionId, Long poHeaderId, Long poLineId, Long poLineLocation, Double poUnitPrice, String currencyCode, String currencyConversionType, Long currencyConversionRate, String currencyConversionDate, Long poDistributionId, String destinationTypeCode, Long locationId, Long deliverToLocationId, String inspectionStatusCode, String subinventory, Long locatorId, String shipmentNum, Long useMtlLot, Long useMtlSerial, Long groupId, String transactionStatusCode, String autoTransactCode, String receiptSourceCode, String validationFlag, Long orgId, Double primaryQuantity, String estado, String attribute15) {
         this.transactionInterfaceId = transactionInterfaceId;
         this.lastUpdatedDate = lastUpdatedDate;
         this.lastUpdatedBy = lastUpdatedBy;
@@ -376,11 +376,11 @@ public class RcvTransactionsInterfaceEntrega {
         this.poLineLocation = poLineLocation;
     }
 
-    public Long getPoUnitPrice() {
+    public Double getPoUnitPrice() {
         return poUnitPrice;
     }
 
-    public void setPoUnitPrice(Long poUnitPrice) {
+    public void setPoUnitPrice(Double poUnitPrice) {
         this.poUnitPrice = poUnitPrice;
     }
 

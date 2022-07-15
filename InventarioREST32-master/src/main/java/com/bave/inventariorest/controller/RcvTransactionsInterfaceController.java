@@ -2,12 +2,7 @@ package com.bave.inventariorest.controller;
 
 import java.util.List;
 
-import com.bave.inventariorest.model.DatosCabeceraRecepcion;
-import com.bave.inventariorest.model.DatosRecepcion;
-import com.bave.inventariorest.model.RcvHeadersInterface;
 import com.bave.inventariorest.model.RcvTransactionsInterface;
-import com.bave.inventariorest.service.PoHeadersAllService;
-import com.bave.inventariorest.service.RcvHeadersInterfaceService;
 import com.bave.inventariorest.service.RcvTransactionsInterfaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -94,6 +89,12 @@ public class RcvTransactionsInterfaceController {
 
         return rcvTransactionsInterfaceService.getbyShipmentHeaderId(shipment_header_id);
 
+    }
+
+
+    @GetMapping("/RcvTransactionsInterface/getPolineasBysegment/{segment}/{poHeaderId}")
+    List<Long> getPolineasBysegment( @PathVariable String segment , @PathVariable Long poHeaderId){
+        return rcvTransactionsInterfaceService.getPolineasBysegmentAndPoHeader(segment,poHeaderId);
     }
 
 

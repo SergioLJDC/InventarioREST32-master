@@ -50,7 +50,7 @@ public class RcvTransactions {
     @Column(name = "PO_DISTRIBUTION_ID")
     private Long poDistributionId;
     @Column(name = "PO_UNIT_PRICE")
-    private Long poUnitPrice;
+    private Double poUnitPrice;
     @Column(name = "CURRENCY_CODE")
     private String currencyCode;
     @Column(name = "CURRENCY_CONVERSION_TYPE")
@@ -242,11 +242,11 @@ public class RcvTransactions {
         this.poDistributionId = poDistributionId;
     }
 
-    public Long getPoUnitPrice() {
+    public Double getPoUnitPrice() {
         return poUnitPrice;
     }
 
-    public void setPoUnitPrice(Long poUnitPrice) {
+    public void setPoUnitPrice(Double poUnitPrice) {
         this.poUnitPrice = poUnitPrice;
     }
 
