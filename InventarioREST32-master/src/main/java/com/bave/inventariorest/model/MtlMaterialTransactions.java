@@ -21,7 +21,7 @@ import javax.persistence.*;
 
 
 @NamedNativeQuery(name = "EntregaOrgsHeaderSELECT"
-        ,query =  " SELECT "
+        ,query =  "  SELECT UNIQUE "
         + "     mtl.SHIPMENT_NUMBER  as shipmentNumber, "
         + "     mtl.RECEIPT_NUM  as receiptNumber, "
         + "     mtl.SHIPMENT_HEADER_ID as shipmentHeaderId, "
@@ -29,7 +29,8 @@ import javax.persistence.*;
         + " FROM "
         + "     mtl_material_transactions mtl"
         + " WHERE "
-        + "     shipment_header_id = ?1 ",resultSetMapping = "EntregaOrgsHeaderSQLMapp")
+        + "     shipment_header_id = ?1 " +
+        "AND ROWNUM <= 1",resultSetMapping = "EntregaOrgsHeaderSQLMapp")
 
 
 

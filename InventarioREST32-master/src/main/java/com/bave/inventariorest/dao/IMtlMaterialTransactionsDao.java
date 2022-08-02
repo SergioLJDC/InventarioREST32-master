@@ -5,9 +5,12 @@ import com.bave.inventariorest.model.MtlMaterialTransactions;
 import com.bave.inventariorest.model.TransactionsDto;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
 
 import javax.persistence.NamedNativeQuery;
 import java.util.List;
+
+@Repository
 
 public interface IMtlMaterialTransactionsDao extends PagingAndSortingRepository<MtlMaterialTransactions,Long> {
 
