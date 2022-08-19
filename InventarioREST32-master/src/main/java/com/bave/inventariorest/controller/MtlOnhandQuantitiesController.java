@@ -12,7 +12,7 @@ import java.util.List;
 public class MtlOnhandQuantitiesController {
 
 
-@Autowired
+    @Autowired
     MtlOnhandQuantitiesService mtlOnhandQuantitiesService;
 
 

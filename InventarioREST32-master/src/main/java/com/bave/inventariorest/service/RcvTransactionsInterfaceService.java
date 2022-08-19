@@ -56,7 +56,6 @@ public class RcvTransactionsInterfaceService  {
 
         try{
 
-
             return (RcvTransactionsInterface) entityManager.createQuery(" SELECT rti FROM RcvTransactionsInterface rti, MtlSystemItems msi where  rti.itemId = msi.inventoryItemId and rti.headerInterfaceId = ?1  and msi.segment1 = ?2 and rti.poLineId = ?3", RcvTransactionsInterface.class).setParameter(1, headerInterfaceId).setParameter(2, codigoSigle).setParameter(3, poLineId).getSingleResult();
         }
         catch(NoResultException e){
@@ -82,7 +81,8 @@ public class RcvTransactionsInterfaceService  {
                     + "     MtlSystemItems msi "
                     + " WHERE "
                     + "     rti.itemId = msi.inventoryItemId "
-                    + "     AND rti.parentTransactionId = ?1 ", RcvTransactionsInterface.class).setParameter(1, parentTransactionId).getSingleResult();
+                    + "     AND rti.parentTransactionId = ?1 "
+                    , RcvTransactionsInterface.class).setParameter(1, parentTransactionId).getSingleResult();
 
         } catch(NoResultException e){
 
@@ -91,6 +91,7 @@ public class RcvTransactionsInterfaceService  {
         }
 
     }
+
 
     public RcvTransactionsInterface getByInterfaceTransactionId(Long interfaceTransactionId){
 
@@ -160,6 +161,17 @@ public class RcvTransactionsInterfaceService  {
     @Transactional
    public List<Long> getPolineasBysegmentAndPoHeader(String segment , Long poHeaderId){
         return iRcvTransactionsInterfaceDao.getPolineasBysegmentAndPoHeader(segment,poHeaderId);
+    }
+
+    @Transactional
+    public int getSumaEntregadosByParentTransactionId(int ParenTransactionID){
+        return iRcvTransactionsInterfaceDao.getSumaEntregadosByParentTransactionId(ParenTransactionID);
+    }
+
+
+    @Transactional
+    public List<RcvTransactionsInterface> getRcvTransactionsInterfaceByParentTransactionId(int ParenTransactionID){
+        return iRcvTransactionsInterfaceDao.getRcvTransactionsInterfaceByParentTransactionId(ParenTransactionID);
     }
 
 

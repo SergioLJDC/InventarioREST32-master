@@ -25,7 +25,7 @@ public class PoHeadersAllService {
     public List<PoHeadersAll> findAll(){
 
         return (List<PoHeadersAll>) entityManager.createQuery("SELECT p from PoHeadersAll p, RcvStatus r " +
-                "where p.po_header_id=r.po_header_id and p.receipt_num=r.receip_num and r.process_flag in (1,2)",PoHeadersAll.class).getResultList();
+                "where p.po_header_id=r.po_header_id and p.receipt_num=r.receip_num and r.process_flag in (1,2) order by p.po_header_id desc ",PoHeadersAll.class).getResultList();
 
     }
 

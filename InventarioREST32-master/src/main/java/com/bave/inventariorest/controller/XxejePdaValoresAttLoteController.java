@@ -24,7 +24,6 @@ public class XxejePdaValoresAttLoteController {
         return  xxejePdaValoresAttLoteService.getAll();
     }
 
-
     @GetMapping("/attLote/ListaDeValoresByFlexId/{FlexId}")
     public List<String> ListaDeValoresByFlexId(@PathVariable Long FlexId){return  xxejePdaValoresAttLoteService.ListaDeValoresByFlexId(FlexId);}
 

@@ -6,4 +6,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 public interface IMtlTransactionsLotsIfaceEntregaDao extends PagingAndSortingRepository<MtlTransactionsLotsIfaceEntrega,Long> {
 
 
+
+
+
 }

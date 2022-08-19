@@ -17,7 +17,6 @@ public class MtlTransactionsLotsIfaceEntregaController {
 
     @PostMapping("/MtlTransactionsLotsIfaceEntrega/insert")
     void insert(@RequestBody MtlTransactionsLotsIfaceEntrega mtlTransactionsLotsIfaceEntrega){
-
         mtlTransactionsLotsIfaceEntregaService.insert(mtlTransactionsLotsIfaceEntrega);
 
     }

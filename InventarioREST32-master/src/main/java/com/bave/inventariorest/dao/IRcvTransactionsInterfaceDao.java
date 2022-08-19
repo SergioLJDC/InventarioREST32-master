@@ -3,10 +3,12 @@ import com.bave.inventariorest.model.DatosCabeceraRecepcion;
 import com.bave.inventariorest.model.DatosRecepcion;
 import com.bave.inventariorest.model.RcvTransactionsInterface;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
+
 
 public interface IRcvTransactionsInterfaceDao extends PagingAndSortingRepository<RcvTransactionsInterface,Long> {
 
@@ -38,6 +40,21 @@ public interface IRcvTransactionsInterfaceDao extends PagingAndSortingRepository
             "AND PLA.LINE_NUM = RTI.PO_LINE_ID " +
             "AND RTI.PO_HEADER_ID = ?2; ",nativeQuery = true)
      List<Long> getPolineasBysegmentAndPoHeader(String segment, Long poHeaderId);
+
+
+    @Query(value = "Select NVL(SUM(RTI.QUANTITY),0) " +
+            "from RCV_TRANSACTIONS_INTERFACE RTI " +
+            "where RTI.PARENT_TRANSACTION_ID = ?1 " +
+            "GROUP BY PARENT_TRANSACTION_ID",nativeQuery = true)
+    int getSumaEntregadosByParentTransactionId(int ParenTransactionID);
+
+
+    @Query(value = " SELECT rti.* FROM RCV_TRANSACTIONS_INTERFACE rti, MTL_SYSTEM_ITEMS msi " +
+            "WHERE " +
+            "rti.ITEM_ID = msi.INVENTORY_ITEM_ID " +
+            "AND rti.PARENT_TRANSACTION_ID = ?1 ",nativeQuery = true)
+    List<RcvTransactionsInterface> getRcvTransactionsInterfaceByParentTransactionId(int ParenTransactionID);
+
 
 
 }

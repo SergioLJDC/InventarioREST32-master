@@ -18,7 +18,11 @@ public class MtlTransactionsLotsIfaceEntregaService {
 
         iMtlTransactionsLotsIfaceEntregaDao.save(mtlTransactionsLotsIfaceEntrega);
 
-
     }
+
+
+
+
+
 
 }

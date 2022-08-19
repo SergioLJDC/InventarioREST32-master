@@ -19,7 +19,6 @@ public class RcvTransactionsInterfaceController {
 
 
     //RCV_TRANSACTIONS_INTERFACE METHODS
-
     @GetMapping("/RcvTransactionsInterface/getArticulos/{id}")
     List<RcvTransactionsInterface> getArticulos(@PathVariable Long id){
         return rcvTransactionsInterfaceService.getArticulos(id);
@@ -95,6 +94,20 @@ public class RcvTransactionsInterfaceController {
     @GetMapping("/RcvTransactionsInterface/getPolineasBysegment/{segment}/{poHeaderId}")
     List<Long> getPolineasBysegment( @PathVariable String segment , @PathVariable Long poHeaderId){
         return rcvTransactionsInterfaceService.getPolineasBysegmentAndPoHeader(segment,poHeaderId);
+
+
+
+    }
+
+    @GetMapping("/RcvTransactionsInterface/getSumaEntregados/{ParenTransactionID}")
+    int getSumaEntregadosByParentTransactionId(@PathVariable int ParenTransactionID){
+        return  rcvTransactionsInterfaceService.getSumaEntregadosByParentTransactionId(ParenTransactionID);
+    }
+
+
+    @GetMapping("/RcvTransactionsInterface/List/{ParenTransactionID}")
+    List<RcvTransactionsInterface>  getRcvTransactionsInterfaceByParentTransactionId(@PathVariable int ParenTransactionID){
+        return rcvTransactionsInterfaceService.getRcvTransactionsInterfaceByParentTransactionId(ParenTransactionID);
     }
 
 
