@@ -49,11 +49,19 @@ public interface IRcvTransactionsInterfaceDao extends PagingAndSortingRepository
     int getSumaEntregadosByParentTransactionId(int ParenTransactionID);
 
 
-    @Query(value = " SELECT rti.* FROM RCV_TRANSACTIONS_INTERFACE rti, MTL_SYSTEM_ITEMS msi " +
-            "WHERE " +
-            "rti.ITEM_ID = msi.INVENTORY_ITEM_ID " +
-            "AND rti.PARENT_TRANSACTION_ID = ?1 ",nativeQuery = true)
+    @Query(value = "SELECT rti.* " +
+            "FROM RCV_TRANSACTIONS_INTERFACE rti , " +
+            "     MTL_SYSTEM_ITEMS msi " +
+            "WHERE rti.ITEM_ID = msi.INVENTORY_ITEM_ID " +
+            "  AND rti.SHIPMENT_HEADER_ID = ?1 ",nativeQuery = true)
     List<RcvTransactionsInterface> getRcvTransactionsInterfaceByParentTransactionId(int ParenTransactionID);
+
+    @Query(value = "SELECT rti.* " +
+            "FROM RCV_TRANSACTIONS_INTERFACE rti " +
+            "WHERE " +
+            "   rti.SHIPMENT_HEADER_ID =?1 ",nativeQuery = true)
+    List<RcvTransactionsInterface> test(int ParenTransactionID);
+
 
 
 
