@@ -98,6 +98,14 @@ public class RcvTransactionsInterfaceService  {
         return (RcvTransactionsInterface) entityManager.createQuery("SELECT rti " + " FROM " + "RcvTransactionsInterface rti, " + "MtlSystemItems msi"
                 + " WHERE " + "rti.itemId = msi.inventoryItemId " + "AND rti.interfaceTransactionId = ?1 ",RcvTransactionsInterface.class).setParameter(1,interfaceTransactionId).getSingleResult();
     }
+
+
+
+    public RcvTransactionsInterface getByInterfaceTransactionIdV2(Long interfaceTransactionId , Long createBy){
+
+        return (RcvTransactionsInterface) entityManager.createQuery("SELECT rti " + " FROM " + "RcvTransactionsInterface rti, " + "MtlSystemItems msi"
+                + " WHERE " + "rti.itemId = msi.inventoryItemId " + "AND rti.interfaceTransactionId = ?1 AND rti.createdBy = ?2 ",RcvTransactionsInterface.class).setParameter(1,interfaceTransactionId).setParameter(2,createBy).getSingleResult();
+    }
     public List<RcvTransactionsInterface> getAllByHeaderV2(Long headerInterfaceId){
 
 
@@ -174,6 +182,10 @@ public class RcvTransactionsInterfaceService  {
         return iRcvTransactionsInterfaceDao.getRcvTransactionsInterfaceByParentTransactionId(ParenTransactionID);
     }
 
+    @Transactional
+    public List<RcvTransactionsInterface> test(int ParenTransactionID){
+        return iRcvTransactionsInterfaceDao.test(ParenTransactionID);
+    }
 
 
 }

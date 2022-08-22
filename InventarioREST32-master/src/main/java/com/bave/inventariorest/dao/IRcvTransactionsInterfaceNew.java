@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public interface IRcvTransactionsInterfaceNew extends CrudRepository<RcvTransact
     @Transactional
     @Modifying
     @Query(value = "DELETE  FROM  RCV_TRANSACTIONS_INTERFACE ITI " +
-            "WHERE ITI.PARENT_TRANSACTION_ID = ?1 AND ITI.CREATED_BY = ?2   ",nativeQuery = true)
-    void deleteTransacion(Long transaction , Long id);
+            "WHERE ITI.INTERFACE_TRANSACTION_ID = ?1 AND ITI.CREATED_BY = ?2 ",nativeQuery = true)
+            void deleteTransacion(Long transaction , Long id);
 
 }

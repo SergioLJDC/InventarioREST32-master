@@ -62,6 +62,13 @@ public class RcvTransactionsInterfaceController {
         return rcvTransactionsInterfaceService.getByInterfaceTransactionId(interfaceTransactionId);
 
     }
+    @GetMapping("/RcvTransactionsInterface/getByInterfaceTransactionIdV2/{interfaceTransactionId}/{createBy}")
+    RcvTransactionsInterface getByInterfaceTransactionIdV2(@PathVariable  Long interfaceTransactionId, @PathVariable  Long createBy){
+
+        return rcvTransactionsInterfaceService.getByInterfaceTransactionIdV2(interfaceTransactionId ,createBy);}
+
+
+
 
     @GetMapping("/RcvTransactionsInterface/getAllByHeader/{headerInterfaceId}")
     List<RcvTransactionsInterface> getAllByHeader(@PathVariable Long headerInterfaceId){
@@ -108,6 +115,12 @@ public class RcvTransactionsInterfaceController {
     @GetMapping("/RcvTransactionsInterface/List/{ParenTransactionID}")
     List<RcvTransactionsInterface>  getRcvTransactionsInterfaceByParentTransactionId(@PathVariable int ParenTransactionID){
         return rcvTransactionsInterfaceService.getRcvTransactionsInterfaceByParentTransactionId(ParenTransactionID);
+    }
+
+
+    @GetMapping("/test/List/{ParenTransactionID}")
+    List<RcvTransactionsInterface>  test(@PathVariable int ParenTransactionID){
+        return rcvTransactionsInterfaceService.test(ParenTransactionID);
     }
 
 
