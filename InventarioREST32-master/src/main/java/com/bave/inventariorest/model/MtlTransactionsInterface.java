@@ -66,7 +66,49 @@ public class MtlTransactionsInterface {
     @Column(name = "SHIPMENT_NUMBER")
     private String shipmentNumber;
 
+    @Column(name = "TRANSACTION_ID")
+    private Long transactionId;
+
     public MtlTransactionsInterface(){}
+
+    public MtlTransactionsInterface(Long transactionInterfaceId, Long processFlag, Long transactionMode, String lastUpdateDate, Long lastUpdatedBy, String creationDate, Long createdBy, Long inventoryItemId, Long organizationId, Double transactionQuantity, Double primaryQuantity, String transactionUom, String transactionDate, String subinventoryCode, Long locatorId, String transactionSourceName, Long transactionSourceTypeId, Long transactionActionId, Long transactionTypeId, String transactionReference, String transferSubinventory, Long transferOrganization, Long transferLocator, String sourceCode, Long sourceLineId, Long sourceHeaderId, String shipmentNumber, Long transactionId) {
+        this.transactionInterfaceId = transactionInterfaceId;
+        this.processFlag = processFlag;
+        TransactionMode = transactionMode;
+        this.lastUpdateDate = lastUpdateDate;
+        this.lastUpdatedBy = lastUpdatedBy;
+        this.creationDate = creationDate;
+        this.createdBy = createdBy;
+        this.inventoryItemId = inventoryItemId;
+        this.organizationId = organizationId;
+        this.transactionQuantity = transactionQuantity;
+        this.primaryQuantity = primaryQuantity;
+        this.transactionUom = transactionUom;
+        this.transactionDate = transactionDate;
+        this.subinventoryCode = subinventoryCode;
+        this.locatorId = locatorId;
+        this.transactionSourceName = transactionSourceName;
+        this.transactionSourceTypeId = transactionSourceTypeId;
+        this.transactionActionId = transactionActionId;
+        this.transactionTypeId = transactionTypeId;
+        this.transactionReference = transactionReference;
+        this.transferSubinventory = transferSubinventory;
+        this.transferOrganization = transferOrganization;
+        this.transferLocator = transferLocator;
+        this.sourceCode = sourceCode;
+        this.sourceLineId = sourceLineId;
+        this.sourceHeaderId = sourceHeaderId;
+        this.shipmentNumber = shipmentNumber;
+        this.transactionId = transactionId;
+    }
+
+    public Long getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(Long transactionId) {
+        this.transactionId = transactionId;
+    }
 
     public MtlTransactionsInterface(Long transactionInterfaceId, Long processFlag, Long transactionMode, String lastUpdateDate, Long lastUpdatedBy, String creationDate, Long createdBy, Long inventoryItemId, Long organizationId, Double transactionQuantity, Double primaryQuantity, String transactionUom, String transactionDate, String subinventoryCode, Long locatorId, String transactionSourceName, Long transactionSourceTypeId, Long transactionActionId, Long transactionTypeId, String transactionReference, String transferSubinventory, Long transferOrganization, Long transferLocator, String sourceCode, Long sourceLineId, Long sourceHeaderId, String shipmentNumber) {
         this.transactionInterfaceId = transactionInterfaceId;

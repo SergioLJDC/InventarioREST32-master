@@ -22,12 +22,23 @@ public interface XxejePdaAtributosLoteRepository extends JpaRepository<XxejePdaA
     List<String> Categorias();
 
     @Query(value = "SELECT XPAL.* FROM INVENTARIO.XXEJE_PDA_ATRIBUTOS_LOTE XPAL " +
-            "WHERE XPAL.DESCRIPTIVE_FLEX_CONTEXT_CODE = ?1",nativeQuery = true)
+            "WHERE XPAL.DESCRIPTIVE_FLEX_CONTEXT_CODE = ?1 ORDER BY  APPLICATION_COLUMN_NAME ASC ",nativeQuery = true)
     List<XxejePdaAtributosLote> objCategorias(String Catergoria);
 
 
     @Query(value = "SELECT  XPAL.FLEX_VALUE_SET_ID FROM INVENTARIO.XXEJE_PDA_ATRIBUTOS_LOTE XPAL WHERE XPAL.APPLICATION_COLUMN_NAME = ?1 AND XPAL.DESCRIPTIVE_FLEX_CONTEXT_CODE = ?2",nativeQuery = true)
     int IdAtt(String Att ,String Categoria);
+
+
+
+
+    @Query(value = "SELECT XPAL.FORM_LEFT_PROMPT FROM INVENTARIO.XXEJE_PDA_ATRIBUTOS_LOTE XPAL " +
+            "WHERE XPAL.DESCRIPTIVE_FLEX_CONTEXT_CODE = ?1 " +
+            "AND XPAL.APPLICATION_COLUMN_NAME = ?2",nativeQuery = true)
+    String hintAttributo(String Categoria,String AtributoN);
+
+
+
 
 
 

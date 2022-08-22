@@ -2,7 +2,10 @@ package com.bave.inventariorest.controller;
 
 import java.util.List;
 
+import com.bave.inventariorest.dao.IRcvTransactionsInterfaceDaoV2;
 import com.bave.inventariorest.model.RcvTransactionsInterface;
+import com.bave.inventariorest.model.RcvTransactionsInterfaceNew;
+import com.bave.inventariorest.model.RcvTransactionsInterfaceV2;
 import com.bave.inventariorest.service.RcvTransactionsInterfaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +16,9 @@ public class RcvTransactionsInterfaceController {
 
     @Autowired
     private RcvTransactionsInterfaceService rcvTransactionsInterfaceService;
+
+    @Autowired
+    private IRcvTransactionsInterfaceDaoV2 rcvTransactionsInterfaceDaoV2;
 
 
 
@@ -118,9 +124,9 @@ public class RcvTransactionsInterfaceController {
     }
 
 
-    @GetMapping("/test/List/{ParenTransactionID}")
-    List<RcvTransactionsInterface>  test(@PathVariable int ParenTransactionID){
-        return rcvTransactionsInterfaceService.test(ParenTransactionID);
+    @GetMapping("/DesRcvTransactionsInterface/List/{Shipment}")
+    List<RcvTransactionsInterfaceV2> ListDes(@PathVariable int Shipment){
+        return rcvTransactionsInterfaceService.ListDes(Shipment);
     }
 
 

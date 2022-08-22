@@ -2,14 +2,19 @@ package com.bave.inventariorest.model;
 
 import com.bave.inventariorest.MultipleKey.RcvTransactionsId;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Table;
 
 
-@Entity
 @Table(name = "RCV_TRANSACTIONS_INTERFACE_DES")
-public class RcvTransactionsInterfaceNew {
-    @EmbeddedId
-    RcvTransactionsId rcvTransactionsId;
+public class RcvTransactionInterfaceDesModel {
+
+    @Column(name = "PARENT_TRANSACTION_ID")
+    private Long parentTransactionId;
+
+    @Column(name = "TRANSACTION_ID")
+    private Long transactionId;
 
     @Column(name = "CREATED_BY")
     private Long createdBy;
@@ -44,7 +49,7 @@ public class RcvTransactionsInterfaceNew {
     @Column(name = "EMPLOYEE_ID")
     private Long employeeId;
     @Column(name = "SHIPMENT_HEADER_ID")
-    private Long shipmentHeaderId;
+    private int shipmentHeaderId;
     @Column(name = "SHIPMENT_LINE_ID")
     private Long shipmentLineId;
     @Column(name = "SHIP_TO_LOCATION_ID")
@@ -118,10 +123,24 @@ public class RcvTransactionsInterfaceNew {
     @Column(name = "SEGMENT1")
     private String segment1;
 
+    public RcvTransactionInterfaceDesModel() {
+    }
 
+    public Long getParentTransactionId() {
+        return parentTransactionId;
+    }
 
+    public void setParentTransactionId(Long parentTransactionId) {
+        this.parentTransactionId = parentTransactionId;
+    }
 
-    public RcvTransactionsInterfaceNew() { }
+    public Long getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(Long transactionId) {
+        this.transactionId = transactionId;
+    }
 
     public Long getCreatedBy() {
         return createdBy;
@@ -131,12 +150,12 @@ public class RcvTransactionsInterfaceNew {
         this.createdBy = createdBy;
     }
 
-    public RcvTransactionsId getRcvTransactionsId() {
-        return rcvTransactionsId;
+    public Long getInterfaceTransactionId() {
+        return interfaceTransactionId;
     }
 
-    public void setRcvTransactionsId(RcvTransactionsId rcvTransactionsId) {
-        this.rcvTransactionsId = rcvTransactionsId;
+    public void setInterfaceTransactionId(Long interfaceTransactionId) {
+        this.interfaceTransactionId = interfaceTransactionId;
     }
 
     public String getLastUpdatedDate() {
@@ -243,11 +262,11 @@ public class RcvTransactionsInterfaceNew {
         this.employeeId = employeeId;
     }
 
-    public Long getShipmentHeaderId() {
+    public int getShipmentHeaderId() {
         return shipmentHeaderId;
     }
 
-    public void setShipmentHeaderId(Long shipmentHeaderId) {
+    public void setShipmentHeaderId(int shipmentHeaderId) {
         this.shipmentHeaderId = shipmentHeaderId;
     }
 
@@ -297,14 +316,6 @@ public class RcvTransactionsInterfaceNew {
 
     public void setSourceDocumentCode(String sourceDocumentCode) {
         this.sourceDocumentCode = sourceDocumentCode;
-    }
-
-    public Long getInterfaceTransactionId() {
-        return interfaceTransactionId;
-    }
-
-    public void setInterfaceTransactionId(Long interfaceTransactionId) {
-        this.interfaceTransactionId = interfaceTransactionId;
     }
 
     public Long getPoHeaderId() {

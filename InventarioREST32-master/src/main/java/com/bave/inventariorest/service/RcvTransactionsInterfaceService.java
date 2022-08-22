@@ -1,9 +1,7 @@
 package com.bave.inventariorest.service;
 
 import com.bave.inventariorest.dao.IRcvTransactionsInterfaceDao;
-import com.bave.inventariorest.model.DatosCabeceraRecepcion;
-import com.bave.inventariorest.model.DatosRecepcion;
-import com.bave.inventariorest.model.RcvTransactionsInterface;
+import com.bave.inventariorest.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +13,8 @@ import javax.persistence.Query;
 import java.util.List;
 
 @Service
-public class RcvTransactionsInterfaceService  {
+public class
+RcvTransactionsInterfaceService  {
 
     @Autowired
     private IRcvTransactionsInterfaceDao iRcvTransactionsInterfaceDao;
@@ -183,8 +182,8 @@ public class RcvTransactionsInterfaceService  {
     }
 
     @Transactional
-    public List<RcvTransactionsInterface> test(int ParenTransactionID){
-        return iRcvTransactionsInterfaceDao.test(ParenTransactionID);
+    public List<RcvTransactionsInterfaceV2> ListDes(int ParenTransactionID){
+        return iRcvTransactionsInterfaceDao.ListDes(ParenTransactionID);
     }
 
 

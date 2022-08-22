@@ -7,7 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface XxpdaLogUserInfo extends CrudRepository<XxpdaLogUser,Long> {
-
     XxpdaLogUser save(XxpdaLogUser xxpdaLogUser);
-
 }

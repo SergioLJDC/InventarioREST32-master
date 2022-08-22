@@ -12,20 +12,19 @@ public class RcvTransactionsId implements Serializable {
     @Column(name = "PARENT_TRANSACTION_ID")
     private Long parentTransactionId;
 
-    @Column(name = "CREATED_BY")
-    private Long createdBy;
-
+    @Column(name = "TRANSACTION_ID")
+    private Long transactionId;
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RcvTransactionsId that = (RcvTransactionsId) o;
-        return parentTransactionId == that.parentTransactionId && createdBy == that.createdBy;
+        return parentTransactionId == that.parentTransactionId && transactionId == that.transactionId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getParentTransactionId(), getCreatedBy());
+        return Objects.hash(getParentTransactionId(), getTransactionId());
     }
 
     public RcvTransactionsId() {
@@ -33,15 +32,16 @@ public class RcvTransactionsId implements Serializable {
 
     public RcvTransactionsId(Long interfaceTransactionId, Long createdBy) {
         this.parentTransactionId = interfaceTransactionId;
-        this.createdBy = createdBy;
+        this.transactionId = createdBy;
     }
 
-    public Long getCreatedBy() {
-        return createdBy;
+
+    public Long getTransactionId() {
+        return transactionId;
     }
 
-    public void setCreatedBy(Long createdBy) {
-        this.createdBy = createdBy;
+    public void setTransactionId(Long transactionId) {
+        this.transactionId = transactionId;
     }
 
     public Long getParentTransactionId() {

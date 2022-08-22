@@ -1,5 +1,6 @@
 package com.bave.inventariorest.controller;
 
+import com.bave.inventariorest.dao.XxejePdaAtributosLoteRepository;
 import com.bave.inventariorest.model.XxejePdaAtributosLote;
 import com.bave.inventariorest.service.XxejePdaAtributosLoteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class XxejePdaAtributosLoteController {
 
     @Autowired
     XxejePdaAtributosLoteService xxejePdaAtributosLoteService;
+
+    @Autowired
+    XxejePdaAtributosLoteRepository xxejePdaAtributosLoteRepository;
 
     @PersistenceContext()
     private EntityManager entityManager;
@@ -51,6 +55,12 @@ public class XxejePdaAtributosLoteController {
     @GetMapping("/lote/id/{Att}/{Categoria}")
     public int IdAtt(@PathVariable String Att ,@PathVariable String Categoria){
        return xxejePdaAtributosLoteService.IdAtt(Att,Categoria);
+    }
+
+
+    @GetMapping("/lote/hintAttributo/byCategoriaAndAtributoN/{Categoria}/{AtributoN}")
+    String hintAttributo(@PathVariable String Categoria,@PathVariable String AtributoN){
+       return xxejePdaAtributosLoteRepository.hintAttributo(Categoria,AtributoN);
     }
 
 }

@@ -16,11 +16,18 @@ public interface XxejePdaValoresAttLoteRepository extends JpaRepository<XxejePda
     @Query(value = "SELECT XPVAL.FLEX_VALUE FROM  XXEJE_PDA_VALORES_ATT_LOTE XPVAL " +
             "WHERE XPVAL.FLEX_VALUE_SET_ID = ?1" ,nativeQuery = true)
     List<String> ListaDeValoresByFlexId(Long FlexId);
+
+
+
+
     @Query(value = "SELECT XPVAL.FLEX_VALUE FROM  XXEJE_PDA_VALORES_ATT_LOTE XPVAL  " +
             "            WHERE XPVAL.FLEX_VALUE_SET_ID = ?1",nativeQuery = true)
     List<String> ValoresAttributoById(Long id);
     @Query(value = "SELECT XPVAL.FLEX_VALUE FROM  XXEJE_PDA_VALORES_ATT_LOTE XPVAL  " +
             "            WHERE XPVAL.FLEX_VALUE_SET_ID = ?1",nativeQuery = true)
     String nombreAtributo(Long id);
+
+
+
 
 }

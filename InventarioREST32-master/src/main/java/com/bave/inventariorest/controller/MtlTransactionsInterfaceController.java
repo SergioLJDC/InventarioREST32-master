@@ -3,6 +3,7 @@ package com.bave.inventariorest.controller;
 import com.bave.inventariorest.model.DatosTransOrg;
 import com.bave.inventariorest.model.DatosTransOrgDetalle;
 import com.bave.inventariorest.model.MtlTransactionsInterface;
+import com.bave.inventariorest.model.MtlTransactionsLotsIfaceDes;
 import com.bave.inventariorest.service.MtlTransactionsInterfaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -119,4 +120,6 @@ public void delete(@PathVariable Long transactionInterfaceId){
     mtlTransactionsInterfaceService.delete(transactionInterfaceId);
 
 }
+
+
 }

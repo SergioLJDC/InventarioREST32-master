@@ -1,6 +1,8 @@
 package com.bave.inventariorest.controller;
 
+import com.bave.inventariorest.dao.MtlTransactionsLotsIfaceDesDao;
 import com.bave.inventariorest.model.MtlTransactionsLotsIface;
+import com.bave.inventariorest.model.MtlTransactionsLotsIfaceDes;
 import com.bave.inventariorest.service.MtlTransactionsLotsIfaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +12,10 @@ public class MtlTransactionsLotsIfaceController {
 
     @Autowired
     MtlTransactionsLotsIfaceService mtlTransactionsLotsIfaceService;
+
+    @Autowired
+    MtlTransactionsLotsIfaceDesDao mtlTransactionsLotsIfaceDesDao;
+
 
 
     @GetMapping("/MtlTransactionsLotsIface/getByInterfaceTransactionId/{InterfaceTransactionId}")
@@ -42,6 +48,30 @@ public class MtlTransactionsLotsIfaceController {
     public MtlTransactionsLotsIface getAll(@PathVariable Long transactionInterfaceId) {
 
         return    mtlTransactionsLotsIfaceService.get(transactionInterfaceId);
+
+    }
+
+    @GetMapping("/MtlTransactionsLotsIfaceV2/getAll/{TransactionInterface}/{keyID}")
+    MtlTransactionsLotsIface NewLoteEntrega(@PathVariable Long TransactionInterface, @PathVariable Long keyID)  {
+        return  mtlTransactionsLotsIfaceService.NewLoteEntrega(TransactionInterface,keyID);
+
+
+
+    }
+
+    @PostMapping("/MtlTransactionsLotsIfaceDes/insert")
+    public void insertDes(@RequestBody MtlTransactionsLotsIfaceDes mtlTransactionsLotsIfaceDes){
+         mtlTransactionsLotsIfaceService.insertDes(mtlTransactionsLotsIfaceDes);
+    }
+
+
+
+
+
+
+    @GetMapping("MtlTransactionsLotsIfaceDes/get/{TransactionId}")
+    MtlTransactionsLotsIfaceDes getDes(@PathVariable Long TransactionId)  {
+        return  mtlTransactionsLotsIfaceService.getByTransactionId(TransactionId);
 
     }
 

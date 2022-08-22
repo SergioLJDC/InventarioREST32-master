@@ -1,14 +1,11 @@
 package com.bave.inventariorest.dao;
-import com.bave.inventariorest.model.DatosCabeceraRecepcion;
-import com.bave.inventariorest.model.DatosRecepcion;
-import com.bave.inventariorest.model.RcvTransactionsInterface;
+import com.bave.inventariorest.model.*;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
-
 
 public interface IRcvTransactionsInterfaceDao extends PagingAndSortingRepository<RcvTransactionsInterface,Long> {
 
@@ -18,7 +15,6 @@ public interface IRcvTransactionsInterfaceDao extends PagingAndSortingRepository
 
 
     void deleteByHeaderInterfaceId(Long headerInterfaceId);
-
 
     void deleteByInterfaceTransactionId(Long interfaceTransactionId);
 
@@ -42,10 +38,12 @@ public interface IRcvTransactionsInterfaceDao extends PagingAndSortingRepository
      List<Long> getPolineasBysegmentAndPoHeader(String segment, Long poHeaderId);
 
 
-    @Query(value = "Select NVL(SUM(RTI.QUANTITY),0) " +
-            "from RCV_TRANSACTIONS_INTERFACE RTI " +
-            "where RTI.PARENT_TRANSACTION_ID = ?1 " +
-            "GROUP BY PARENT_TRANSACTION_ID",nativeQuery = true)
+    @Query(value = "SELECT NVL( ( RT.QUANTITY - T1.QUANTITY_HAND),0) AS CANTIDAD_RESERVADA FROM (  " +
+            "Select NVL(SUM(RTI.QUANTITY),0) QUANTITY_HAND " +
+            "            from RCV_TRANSACTIONS_INTERFACE RTI " +
+            "            where RTI.PARENT_TRANSACTION_ID = ?1) T1, " +
+            "             RCV_TRANSACTIONS RT " +
+            "WHERE RT.TRANSACTION_ID = ?1",nativeQuery = true)
     int getSumaEntregadosByParentTransactionId(int ParenTransactionID);
 
 
@@ -57,12 +55,8 @@ public interface IRcvTransactionsInterfaceDao extends PagingAndSortingRepository
     List<RcvTransactionsInterface> getRcvTransactionsInterfaceByParentTransactionId(int ParenTransactionID);
 
     @Query(value = "SELECT rti.* " +
-            "FROM RCV_TRANSACTIONS_INTERFACE rti " +
+            "FROM RCV_TRANSACTIONS_INTERFACE_DES rti " +
             "WHERE " +
             "   rti.SHIPMENT_HEADER_ID =?1 ",nativeQuery = true)
-    List<RcvTransactionsInterface> test(int ParenTransactionID);
-
-
-
-
+    List<RcvTransactionsInterfaceV2> ListDes(int ParenTransactionID);
 }

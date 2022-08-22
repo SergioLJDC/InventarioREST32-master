@@ -1,28 +1,27 @@
 package com.bave.inventariorest.model;
-
-import com.bave.inventariorest.MultipleKey.RcvTransactionsId;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "RCV_TRANSACTIONS_INTERFACE_DES")
-public class RcvTransactionsInterfaceNew {
-    @EmbeddedId
-    RcvTransactionsId rcvTransactionsId;
+@Table(name = "RCV_TRANSACTIONS_INTERFACE")
+public class RcvTransactionsInterfaceV2 {
 
-    @Column(name = "CREATED_BY")
-    private Long createdBy;
+
+
     @Column(name = "INTERFACE_TRANSACTION_ID")
     private Long interfaceTransactionId;
-
     @Column(name = "LAST_UPDATE_DATE")
     private String lastUpdatedDate;
     @Column(name = "LAST_UPDATED_BY")
     private Long lastUpdatedBy;
     @Column(name = "CREATION_DATE")
     private String creationDate;
-
+    @Id
+    @Column(name = "CREATED_BY")
+    private Long createdBy;
     @Column(name = "TRANSACTION_TYPE")
     private String transactionType;
     @Column(name = "TRANSACTION_DATE")
@@ -57,7 +56,8 @@ public class RcvTransactionsInterfaceNew {
     private Long toOrganizationId;
     @Column(name = "SOURCE_DOCUMENT_CODE")
     private String sourceDocumentCode;
-
+    @Column(name = "PARENT_TRANSACTION_ID")
+    private Long parentTransactionId;
     @Column(name = "PO_HEADER_ID")
     private Long poHeaderId;
     @Column(name = "PO_LINE_ID")
@@ -119,24 +119,14 @@ public class RcvTransactionsInterfaceNew {
     private String segment1;
 
 
+    public RcvTransactionsInterfaceV2() { }
 
-
-    public RcvTransactionsInterfaceNew() { }
-
-    public Long getCreatedBy() {
-        return createdBy;
+    public Long getInterfaceTransactionId() {
+        return interfaceTransactionId;
     }
 
-    public void setCreatedBy(Long createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public RcvTransactionsId getRcvTransactionsId() {
-        return rcvTransactionsId;
-    }
-
-    public void setRcvTransactionsId(RcvTransactionsId rcvTransactionsId) {
-        this.rcvTransactionsId = rcvTransactionsId;
+    public void setInterfaceTransactionId(Long interfaceTransactionId) {
+        this.interfaceTransactionId = interfaceTransactionId;
     }
 
     public String getLastUpdatedDate() {
@@ -161,6 +151,14 @@ public class RcvTransactionsInterfaceNew {
 
     public void setCreationDate(String creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public Long getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(Long createdBy) {
+        this.createdBy = createdBy;
     }
 
     public String getTransactionType() {
@@ -299,12 +297,12 @@ public class RcvTransactionsInterfaceNew {
         this.sourceDocumentCode = sourceDocumentCode;
     }
 
-    public Long getInterfaceTransactionId() {
-        return interfaceTransactionId;
+    public Long getParentTransactionId() {
+        return parentTransactionId;
     }
 
-    public void setInterfaceTransactionId(Long interfaceTransactionId) {
-        this.interfaceTransactionId = interfaceTransactionId;
+    public void setParentTransactionId(Long parentTransactionId) {
+        this.parentTransactionId = parentTransactionId;
     }
 
     public Long getPoHeaderId() {

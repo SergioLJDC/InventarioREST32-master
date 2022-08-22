@@ -1,28 +1,23 @@
 package com.bave.inventariorest.model;
 
-import com.bave.inventariorest.MultipleKey.RcvTransactionsId;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-import javax.persistence.*;
-
-
-@Entity
 @Table(name = "RCV_TRANSACTIONS_INTERFACE_DES")
-public class RcvTransactionsInterfaceNew {
-    @EmbeddedId
-    RcvTransactionsId rcvTransactionsId;
 
-    @Column(name = "CREATED_BY")
-    private Long createdBy;
+public class RcvTransactionInterfaceId {
     @Column(name = "INTERFACE_TRANSACTION_ID")
     private Long interfaceTransactionId;
-
     @Column(name = "LAST_UPDATE_DATE")
     private String lastUpdatedDate;
     @Column(name = "LAST_UPDATED_BY")
     private Long lastUpdatedBy;
     @Column(name = "CREATION_DATE")
     private String creationDate;
-
+    @Column(name = "CREATED_BY")
+    private Long createdBy;
     @Column(name = "TRANSACTION_TYPE")
     private String transactionType;
     @Column(name = "TRANSACTION_DATE")
@@ -57,7 +52,8 @@ public class RcvTransactionsInterfaceNew {
     private Long toOrganizationId;
     @Column(name = "SOURCE_DOCUMENT_CODE")
     private String sourceDocumentCode;
-
+    @Column(name = "PARENT_TRANSACTION_ID")
+    private Long parentTransactionId;
     @Column(name = "PO_HEADER_ID")
     private Long poHeaderId;
     @Column(name = "PO_LINE_ID")
@@ -118,25 +114,82 @@ public class RcvTransactionsInterfaceNew {
     @Column(name = "SEGMENT1")
     private String segment1;
 
+    @Column(name = "TRANSACTION_ID")
+    private Long transactionId;
 
 
+    public RcvTransactionInterfaceId() { }
 
-    public RcvTransactionsInterfaceNew() { }
-
-    public Long getCreatedBy() {
-        return createdBy;
+    public Long getTransactionId() {
+        return transactionId;
     }
 
-    public void setCreatedBy(Long createdBy) {
+    public void setTransactionId(Long transactionId) {
+        this.transactionId = transactionId;
+    }
+
+    public RcvTransactionInterfaceId(Long interfaceTransactionId, String lastUpdatedDate, Long lastUpdatedBy, String creationDate, Long createdBy, String transactionType, String transactionDate, String processingStatusCode, String processingModeCode, Double quantity, String unitOfMeasure, Long itemId, String itemDescription, String uomCode, Long employeeId, Long shipmentHeaderId, Long shipmentLineId, Long shipToLocationId, Long vendorId, Long vendorSiteId, Long toOrganizationId, String sourceDocumentCode, Long parentTransactionId, Long poHeaderId, Long poLineId, Long poLineLocation, Double poUnitPrice, String currencyCode, String currencyConversionType, Double currencyConversionRate, String currencyConversionDate, Long poDistributionId, String destinationTypeCode, Long locationId, Long deliverToLocationId, String inspectionStatusCode, String subinventory, Long locatorId, String shipmentNum, Long useMtlLot, Long useMtlSerial, Long groupId, String transactionStatusCode, String autoTransactCode, String receiptSourceCode, String validationFlag, Long orgId, Double primaryQuantity, Long headerInterfaceId, String vendorSiteCode, String comments, String segment1, Long transactionId) {
+        this.interfaceTransactionId = interfaceTransactionId;
+        this.lastUpdatedDate = lastUpdatedDate;
+        this.lastUpdatedBy = lastUpdatedBy;
+        this.creationDate = creationDate;
         this.createdBy = createdBy;
+        this.transactionType = transactionType;
+        this.transactionDate = transactionDate;
+        this.processingStatusCode = processingStatusCode;
+        this.processingModeCode = processingModeCode;
+        this.quantity = quantity;
+        this.unitOfMeasure = unitOfMeasure;
+        this.itemId = itemId;
+        this.itemDescription = itemDescription;
+        UomCode = uomCode;
+        this.employeeId = employeeId;
+        this.shipmentHeaderId = shipmentHeaderId;
+        this.shipmentLineId = shipmentLineId;
+        this.shipToLocationId = shipToLocationId;
+        this.vendorId = vendorId;
+        this.vendorSiteId = vendorSiteId;
+        this.toOrganizationId = toOrganizationId;
+        this.sourceDocumentCode = sourceDocumentCode;
+        this.parentTransactionId = parentTransactionId;
+        this.poHeaderId = poHeaderId;
+        this.poLineId = poLineId;
+        this.poLineLocation = poLineLocation;
+        this.poUnitPrice = poUnitPrice;
+        this.currencyCode = currencyCode;
+        this.currencyConversionType = currencyConversionType;
+        this.currencyConversionRate = currencyConversionRate;
+        this.currencyConversionDate = currencyConversionDate;
+        this.poDistributionId = poDistributionId;
+        this.destinationTypeCode = destinationTypeCode;
+        this.locationId = locationId;
+        this.deliverToLocationId = deliverToLocationId;
+        this.inspectionStatusCode = inspectionStatusCode;
+        this.subinventory = subinventory;
+        this.locatorId = locatorId;
+        this.shipmentNum = shipmentNum;
+        this.useMtlLot = useMtlLot;
+        this.useMtlSerial = useMtlSerial;
+        this.groupId = groupId;
+        this.transactionStatusCode = transactionStatusCode;
+        this.autoTransactCode = autoTransactCode;
+        this.receiptSourceCode = receiptSourceCode;
+        this.validationFlag = validationFlag;
+        this.orgId = orgId;
+        this.primaryQuantity = primaryQuantity;
+        this.headerInterfaceId = headerInterfaceId;
+        this.vendorSiteCode = vendorSiteCode;
+        this.comments = comments;
+        this.segment1 = segment1;
+        this.transactionId = transactionId;
     }
 
-    public RcvTransactionsId getRcvTransactionsId() {
-        return rcvTransactionsId;
+    public Long getInterfaceTransactionId() {
+        return interfaceTransactionId;
     }
 
-    public void setRcvTransactionsId(RcvTransactionsId rcvTransactionsId) {
-        this.rcvTransactionsId = rcvTransactionsId;
+    public void setInterfaceTransactionId(Long interfaceTransactionId) {
+        this.interfaceTransactionId = interfaceTransactionId;
     }
 
     public String getLastUpdatedDate() {
@@ -161,6 +214,14 @@ public class RcvTransactionsInterfaceNew {
 
     public void setCreationDate(String creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public Long getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(Long createdBy) {
+        this.createdBy = createdBy;
     }
 
     public String getTransactionType() {
@@ -299,12 +360,12 @@ public class RcvTransactionsInterfaceNew {
         this.sourceDocumentCode = sourceDocumentCode;
     }
 
-    public Long getInterfaceTransactionId() {
-        return interfaceTransactionId;
+    public Long getParentTransactionId() {
+        return parentTransactionId;
     }
 
-    public void setInterfaceTransactionId(Long interfaceTransactionId) {
-        this.interfaceTransactionId = interfaceTransactionId;
+    public void setParentTransactionId(Long parentTransactionId) {
+        this.parentTransactionId = parentTransactionId;
     }
 
     public Long getPoHeaderId() {
